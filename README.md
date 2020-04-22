@@ -35,4 +35,5 @@ Doesn't do much other than *the thing*.
 
 # Thank you human
 This is free and open source software, but was made with [love and support from White Ops](https://whiteops.com)
-And thanks to Koodous.
+
+And thanks to Koodous. >:)
