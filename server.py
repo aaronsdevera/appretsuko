@@ -1,3 +1,20 @@
+# This is free and open source software,
+# but was made with love and support from White Ops
+# 
+#     ████████
+#   ██   ▄▄   ██
+# ██  ▐█ ██ █▌  ██
+# ██  ▐█ ██ █▌  ██           White Ops - Keep It Human
+# ██  ▐█ ██ █▌  ██           www dot whiteops dot com
+# ██  ▐█ ██ █▌  ██
+#   ██   ▀▀   ██
+#     ████████
+# 
+#
+# a p p r e t s u k o
+# resolve android appids to sha256 (and more) using koodous
+# api server below
+
 import os
 from flask import Flask, render_template
 from markupsafe import escape
