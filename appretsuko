@@ -26,13 +26,30 @@ if [ "$#" -eq 0 ]; then
     echo "Options:"
     echo "appid         use the appid api endpoint to submit android appid"
     echo "sha256        use the sha256 api endpoint to submit sha256 hash"
+    echo "-v            add this flag for full json response "
     echo ""
     echo "Usage: $0 <appid | sha256> <appid or sha256 indicator>"
     echo "e.g. appretsuko appid com.facebook.katana"
     echo "e.g. appretsuko sha256 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6fc2d9f76"
+    echo "e.g. appretsuko -v appid com.facebook.katana"
+    echo "e.g. appretsuko sha256 -v 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6fc2d9f76"
     echo ""
     exit 1
 fi
+
+# verbosity
+if [ "$1" = "-v" ] || [ "$2" = "-v" ] || [ "$3" = "-v" ]; then
+    if [ "$1" = "appid" ] || [ "$2" = "appid" ] || [ "$3" = "appid" ]; then
+        curl -s https://appretsuko-api.glitch.me/appid/$2 | jq .
+        exit 0
+    fi
+
+    if [ "$1" = "sha256" ] || [ "$2" = "sha256" ] || [ "$3" = "sha256" ]; then
+        curl -s https://appretsuko-api.glitch.me/sha256/$2 | jq .
+        exit 0
+    fi
+fi
+
 
 if [ "$1" = "appid" ]; then
     curl -s https://appretsuko-api.glitch.me/appid/$2 | jq .top_match.sha256 | sed 's/"//g'

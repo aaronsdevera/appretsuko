@@ -15,10 +15,13 @@ resolve android appids to sha256 (and more)
 Options:
 appid         use the appid api endpoint to submit android appid
 sha256        use the sha256 api endpoint to submit sha256 hash
+-v            add this flag for full json response 
 
 Usage: ./appretsuko <appid | sha256> <appid or sha256 indicator>
 e.g. appretsuko appid com.facebook.katana
 e.g. appretsuko sha256 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6fc2d9f76
+e.g. appretsuko -v appid com.facebook.katana
+e.g. appretsuko sha256 -v 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6fc2d9f76
 ```
 
 # The parts
