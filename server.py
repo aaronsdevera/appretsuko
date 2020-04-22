@@ -5,6 +5,24 @@ import json, random, requests
 
 kd_api_key = os.getenv('koodous_key')
 
+def parse_koodous_result(result):
+    possible_version = result['displayed_version']
+    app_name = result['app']
+    company_name = result['company']
+    created_time = result['created_on']
+    md5 = result['md5']
+    sha256 = result['sha256']
+    appid = result['package_name']
+    return {
+        'possible_version':possible_version,
+        'app_name' = app_name,
+        'company_name' = company_name,
+        'created_time' = created_time,
+        'md5' = md5,
+        'sha256' = sha256,
+        'appid' = appid
+        }
+
 def query_koodous(input):
     headers = {
         'Authorization': 'Token ' + kd_api_key,
@@ -13,8 +31,10 @@ def query_koodous(input):
         }
     params = {'search':input}
     r = requests.get(url="https://api.koodous.com/apks", headers=headers,params=params)
-    first_result = r.json()['results'][0]
-    return first_result
+    results = r.json()['results']
+    top_result = results[0]
+    parsed_top_result = parse_koodous_result(top_result)
+    return json.loads(parsed_top_result)
 
 app = Flask(__name__)
 
