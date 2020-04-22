@@ -52,7 +52,7 @@ def query_koodous(input):
     r = requests.get(url="https://api.koodous.com/apks", headers=headers,params=params)
     results = r.json()['results']
     if len(results) == 0:
-        return {'results':'NULL'}
+        return {'top_match':'NULL'}
     else:
         results_length = len(results)
         parsed_results = []
