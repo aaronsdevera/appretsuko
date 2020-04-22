@@ -21,6 +21,18 @@ e.g. appretsuko appid com.facebook.katana
 e.g. appretsuko sha256 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6fc2d9f76
 ```
 
+# The parts
+This repo contains the API server that wraps arouond the Koodous endpoints, as well as a CLI script for hitting the API.
+
+## server.py
+This runs the appretsuko API server.
+Note that Koodous key should be exported to an environment variable named `koodous_key`.
+This can be done by running `export koodous_key=<your koodous API key>` in your terminal.
+
+## appretsuko
+Shell script for using the appretsuko API.
+Doesn't do much other than *the thing*.
+
 # Thank you human
 This is free and open source software, but was made with [love and support from White Ops](https://whiteops.com)
-And thanks to Koodoous.
+And thanks to Koodous.
