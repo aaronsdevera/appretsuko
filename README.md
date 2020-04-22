@@ -1,7 +1,7 @@
 # appretsuko
 Android AppID <> Hash Resolver
 
-<img src="https://repository-images.githubusercontent.com/257831950/a1782380-8440-11ea-9a7a-8a1a7a96e1ff" width=200 align=left>
+<img src="https://repository-images.githubusercontent.com/257831950/a1782380-8440-11ea-9a7a-8a1a7a96e1ff" width=200>
 
 
 *named after [aggretsuko the red fox panda](https://www.youtube.com/watch?v=1n3xXuEyr40) who loves looking at malicious apps*
