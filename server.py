@@ -11,16 +11,18 @@ def parse_koodous_result(result):
     company_name = result['company']
     created_time = result['created_on']
     md5 = result['md5']
+    sha1 = result['sha1']
     sha256 = result['sha256']
     appid = result['package_name']
     return {
         'possible_version':possible_version,
-        'app_name' = app_name,
-        'company_name' = company_name,
-        'created_time' = created_time,
-        'md5' = md5,
-        'sha256' = sha256,
-        'appid' = appid
+        'app_name' : app_name,
+        'company_name' : company_name,
+        'created_time' : created_time,
+        'md5' : md5,
+        'sha1' : sha1,
+        'sha256' : sha256,
+        'appid' : appid
         }
 
 def query_koodous(input):
@@ -32,9 +34,25 @@ def query_koodous(input):
     params = {'search':input}
     r = requests.get(url="https://api.koodous.com/apks", headers=headers,params=params)
     results = r.json()['results']
-    top_result = results[0]
-    parsed_top_result = parse_koodous_result(top_result)
-    return json.loads(parsed_top_result)
+
+    results_length = len(results)
+    parsed_results = []
+    for result in results:
+        parsed_results.append(parse_koodous_result(result))
+
+    top_result = parsed_results[0]
+    if results_length > 1:
+        returned_parsed_results = parsed_results[1:]
+        return {
+            'possible_matches': str(results_length),
+            'top_match': top_result,
+            'other_matches': returned_parsed_results
+        }
+    else:
+        return {
+            'possible_matches': str(results_length),
+            'top_match': top_result
+        }
 
 app = Flask(__name__)
 
