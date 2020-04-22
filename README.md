@@ -22,7 +22,7 @@ e.g. appretsuko sha256 04709090134ca217db5b4190f6c5d30d60164a5a565de45a0ed3e3a6f
 ```
 
 # The parts
-This repo contains the API server that wraps arouond the Koodous endpoints, as well as a CLI script for hitting the API.
+This repo contains the API server that wraps around the Koodous endpoints, as well as a CLI script for hitting the API.
 
 ## server.py
 This runs the appretsuko API server.
